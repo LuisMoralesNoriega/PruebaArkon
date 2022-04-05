@@ -1,0 +1,44 @@
+<!-- Titulo del Componente -->
+<mat-card>Ingrese los datos de la tarea</mat-card>
+
+<!-- Formulario para obtener la informacion -->
+<form class="example-container" [formGroup]="form" #frmTarea="ngForm" (ngSubmit)="operar()">
+    <!-- ID de la tarea -->
+    <div [hidden]="true">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="ID" formControlName="id_tarea">
+      </mat-form-field>
+    </div>
+    <!-- Descripcion de la tarea -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Descripcion" required formControlName="descripcion">
+    </mat-form-field>
+    <!-- Fecha de fin de la tarea -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Fecha Fin" required formControlName="fecha_fin">
+    </mat-form-field>
+    <!-- Duracion de la tarea -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Duracion" required formControlName="duracion" type="number">
+    </mat-form-field>
+    <!-- Estado de la tarea -->
+    <mat-form-field class="example-full-width">
+      <select placeholder="Estado de Tarea" [(ngModel)]="estadoTarea" matNativeControl formControlName="estado"> 
+        <option value="Pendiente">Pendiente</option>
+        <option value="Iniciada">Iniciada</option>
+        <option value="Completada">Completada</option>
+        <option value="Eliminada">Eliminada</option>
+      </select>
+    </mat-form-field>
+    <!-- Boton para realizar accion si todo es correcto -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmTarea.invalid">
+      <mat-icon>done</mat-icon>
+      <span>Aceptar</span>
+    </button>
+    <!-- Boton para cancelar edicion o creacion -->
+    <button mat-raised-button color="accent" routerLink='/tarea' type="button">
+      <mat-icon>close</mat-icon>
+      <span>Cancelar</span>
+    </button>
+
+</form>

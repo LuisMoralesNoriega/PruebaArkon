@@ -1,0 +1,17 @@
+<!-- Titulo del Dialogo -->
+<h1 mat-dialog-title>
+    Actualización de Temporizador
+</h1>
+    
+<!-- Mensaje de confirmacion -->
+<div mat-dialog-content>
+    <p>El temporizador se va {{tempo}} 
+        Confirme el cambio
+    </p>
+</div>
+    
+<!--Botones de acciones -->
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelar()">Cancelar</button>
+    <button mat-raised-button (click)="onConfirmar()">Modificar</button>
+</div>
